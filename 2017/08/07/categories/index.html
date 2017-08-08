@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="分页的分类1.物理分页: 只从数据库中查询当前被查询页的数据,在实际的业务中基本都是使用物理分页2.逻辑分页: 将所有数据都先查询出来,然后会存储到内存中,再取出对应的数据,这种分页如果在数据量很大的情况下,内存会占用率就会非常高,比较适合少量数据的情况下的使用. 查询语句mysql: limit start, size   start表示起始的索引,比如说我要查询第五页的数据,那起始的索引就是4">
+<meta name="description" content="分页的分类1.物理分页: 只从数据库中查询当前被查询页的数据,在实际的业务中基本都是使用物理分页.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mybatis 实现物理分页">
 <meta property="og:url" content="http://yoursite.com/2017/08/07/categories/index.html">
 <meta property="og:site_name" content="琴瑟愿与,共沐春秋">
-<meta property="og:description" content="分页的分类1.物理分页: 只从数据库中查询当前被查询页的数据,在实际的业务中基本都是使用物理分页2.逻辑分页: 将所有数据都先查询出来,然后会存储到内存中,再取出对应的数据,这种分页如果在数据量很大的情况下,内存会占用率就会非常高,比较适合少量数据的情况下的使用. 查询语句mysql: limit start, size   start表示起始的索引,比如说我要查询第五页的数据,那起始的索引就是4">
+<meta property="og:description" content="分页的分类1.物理分页: 只从数据库中查询当前被查询页的数据,在实际的业务中基本都是使用物理分页.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/mybatisPage.png">
-<meta property="og:updated_time" content="2017-08-08T10:05:43.000Z">
+<meta property="og:updated_time" content="2017-08-08T10:10:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mybatis 实现物理分页">
-<meta name="twitter:description" content="分页的分类1.物理分页: 只从数据库中查询当前被查询页的数据,在实际的业务中基本都是使用物理分页2.逻辑分页: 将所有数据都先查询出来,然后会存储到内存中,再取出对应的数据,这种分页如果在数据量很大的情况下,内存会占用率就会非常高,比较适合少量数据的情况下的使用. 查询语句mysql: limit start, size   start表示起始的索引,比如说我要查询第五页的数据,那起始的索引就是4">
+<meta name="twitter:description" content="分页的分类1.物理分页: 只从数据库中查询当前被查询页的数据,在实际的业务中基本都是使用物理分页.">
 <meta name="twitter:image" content="http://yoursite.com/images/mybatisPage.png">
 
 
@@ -384,7 +384,7 @@
       
 
       
-        <h2 id="分页的分类"><a href="#分页的分类" class="headerlink" title="分页的分类"></a><li>分页的分类</li></h2><p>1.物理分页: 只从数据库中查询当前被查询页的数据,在实际的业务中基本都是使用物理分页<br>2.逻辑分页: 将所有数据都先查询出来,然后会存储到内存中,再取出对应的数据,这种分页如果在数据量很大的情况下,内存会占用率就会非常高,比较适合少量数据的情况下的使用.</p>
+        <h2 id="分页的分类"><a href="#分页的分类" class="headerlink" title="分页的分类"></a><li>分页的分类</li></h2><p>1.物理分页: 只从数据库中查询当前被查询页的数据,在实际的业务中基本都是使用物理分页.<br><a id="more"></a><br>2.逻辑分页: 将所有数据都先查询出来,然后会存储到内存中,再取出对应的数据,这种分页如果在数据量很大的情况下,内存会占用率就会非常高,比较适合少量数据的情况下的使用.</p>
 <h2 id="查询语句"><a href="#查询语句" class="headerlink" title="查询语句"></a><li>查询语句</li></h2><p>mysql: limit start, size </p>
 <blockquote>
 <p>start表示起始的索引,比如说我要查询第五页的数据,那起始的索引就是40, size表示一页的数量,比如10的话,就是40-50的数据.</p>
