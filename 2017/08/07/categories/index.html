@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="Java PageHelper的使用1String name = &quot;first hexo blog&quot; test">
+<meta name="description" content="分页的分类1.物理分页: 只从数据库中查询当前被查询页的数据,在实际的业务中基本都是使用物理分页2.逻辑分页: 将所有数据都先查询出来,然后会存储到内存中,再取出对应的数据,这种分页如果在数据量很大的情况下,内存会占用率就会非常高,比较适合少量数据的情况下的使用. 查询语句mysql: limit start, size   start表示起始的索引,比如说我要查询第五页的数据,那起始的索引就是4">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PageHelper的使用">
+<meta property="og:title" content="Mybatis 实现物理分页">
 <meta property="og:url" content="http://yoursite.com/2017/08/07/categories/index.html">
-<meta property="og:site_name" content="尹思迁的个人技术博客">
-<meta property="og:description" content="Java PageHelper的使用1String name = &quot;first hexo blog&quot; test">
+<meta property="og:site_name" content="琴瑟愿与,共沐春秋">
+<meta property="og:description" content="分页的分类1.物理分页: 只从数据库中查询当前被查询页的数据,在实际的业务中基本都是使用物理分页2.逻辑分页: 将所有数据都先查询出来,然后会存储到内存中,再取出对应的数据,这种分页如果在数据量很大的情况下,内存会占用率就会非常高,比较适合少量数据的情况下的使用. 查询语句mysql: limit start, size   start表示起始的索引,比如说我要查询第五页的数据,那起始的索引就是4">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/avatar.gif">
-<meta property="og:updated_time" content="2017-08-08T06:50:15.000Z">
+<meta property="og:image" content="http://yoursite.com/images/mybatisPage.png">
+<meta property="og:updated_time" content="2017-08-08T10:05:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PageHelper的使用">
-<meta name="twitter:description" content="Java PageHelper的使用1String name = &quot;first hexo blog&quot; test">
-<meta name="twitter:image" content="http://yoursite.com/images/avatar.gif">
+<meta name="twitter:title" content="Mybatis 实现物理分页">
+<meta name="twitter:description" content="分页的分类1.物理分页: 只从数据库中查询当前被查询页的数据,在实际的业务中基本都是使用物理分页2.逻辑分页: 将所有数据都先查询出来,然后会存储到内存中,再取出对应的数据,这种分页如果在数据量很大的情况下,内存会占用率就会非常高,比较适合少量数据的情况下的使用. 查询语句mysql: limit start, size   start表示起始的索引,比如说我要查询第五页的数据,那起始的索引就是4">
+<meta name="twitter:image" content="http://yoursite.com/images/mybatisPage.png">
 
 
 
@@ -141,7 +141,7 @@
 
 
 
-  <title>PageHelper的使用 | 尹思迁的个人技术博客</title>
+  <title>Mybatis 实现物理分页 | 琴瑟愿与,共沐春秋</title>
   
 
 
@@ -187,7 +187,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">尹思迁的个人技术博客</span>
+        <span class="site-title">琴瑟愿与,共沐春秋</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -287,13 +287,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/07/categories/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="尹思迁">
+      <meta itemprop="name" content="yinsiqian">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="尹思迁的个人技术博客">
+      <meta itemprop="name" content="琴瑟愿与,共沐春秋">
     </span>
 
     
@@ -301,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PageHelper的使用</h1>
+          <h1 class="post-title" itemprop="name headline">Mybatis 实现物理分页</h1>
         
 
         <div class="post-meta">
@@ -353,7 +353,7 @@
 
           
           
-             <span id="/2017/08/07/categories/" class="leancloud_visitors" data-flag-title="PageHelper的使用">
+             <span id="/2017/08/07/categories/" class="leancloud_visitors" data-flag-title="Mybatis 实现物理分页">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -384,9 +384,26 @@
       
 
       
-        <hr>
-<h2 id="Java-PageHelper的使用"><a href="#Java-PageHelper的使用" class="headerlink" title="Java PageHelper的使用"></a>Java PageHelper的使用</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="type">String</span> name = <span class="string">"first hexo blog"</span></div></pre></td></tr></table></figure>
-<p>test <img src="/images/avatar.gif" alt="Alt 图片"></p>
+        <h2 id="分页的分类"><a href="#分页的分类" class="headerlink" title="分页的分类"></a><li>分页的分类</li></h2><p>1.物理分页: 只从数据库中查询当前被查询页的数据,在实际的业务中基本都是使用物理分页<br>2.逻辑分页: 将所有数据都先查询出来,然后会存储到内存中,再取出对应的数据,这种分页如果在数据量很大的情况下,内存会占用率就会非常高,比较适合少量数据的情况下的使用.</p>
+<h2 id="查询语句"><a href="#查询语句" class="headerlink" title="查询语句"></a><li>查询语句</li></h2><p>mysql: limit start, size </p>
+<blockquote>
+<p>start表示起始的索引,比如说我要查询第五页的数据,那起始的索引就是40, size表示一页的数量,比如10的话,就是40-50的数据.</p>
+</blockquote>
+<p>oracle: rownum</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a><li>实例</li></h2><p>定义一个实体类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用户记录日志类</span></div><div class="line">pulic <span class="class"><span class="keyword">class</span> <span class="title">UserLog</span> </span>&#123;</div><div class="line">   <span class="keyword">private</span> Integer id;</div><div class="line">   </div><div class="line">   <span class="keyword">private</span> String <span class="keyword">module</span>;</div><div class="line">   </div><div class="line">   <span class="keyword">private</span> String function;</div><div class="line">   </div><div class="line">   <span class="keyword">private</span> String ip;</div><div class="line">   </div><div class="line">   <span class="keyword">private</span> String time;</div><div class="line">   </div><div class="line">   <span class="comment">//Getter and Setter</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一个简单的Page类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">pulic <span class="class"><span class="keyword">class</span> <span class="title">Page</span> </span>&#123;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">int</span> pageNum;</div><div class="line">   </div><div class="line">   <span class="keyword">private</span> <span class="keyword">int</span> pageSize = <span class="number">10</span>; <span class="comment">//默认为10</span></div><div class="line">   </div><div class="line">   <span class="keyword">private</span> <span class="keyword">int</span> startIndex; <span class="comment">//计算起始索引</span></div><div class="line">   </div><div class="line">   <span class="comment">//Getter and Setter</span></div><div class="line">   </div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPageNum</span><span class="params">(<span class="keyword">int</span> pageNum)</span> </span>&#123;</div><div class="line">      <span class="keyword">this</span>.pageNum = pageNum;</div><div class="line">      setStartIndex(pageNum * getPageSize())</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPageSize</span><span class="params">(<span class="keyword">int</span> pageSize)</span> </span>&#123;</div><div class="line">      <span class="keyword">this</span>.pageNum = pageNum;</div><div class="line">      setStartIndex(pageNum * getPageSize())</div><div class="line">   &#125;</div><div class="line">   <span class="comment">//其他的就省略了</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>mapper</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">mapper.xml配置文件</div><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectByPage"</span> <span class="attr">parameterType</span>=<span class="string">"com.ysq.util.Page"</span></span></div><div class="line"><span class="tag">          <span class="attr">resultMap</span>=<span class="string">"BaseResultMap"</span>&gt;</span></div><div class="line">    select * from user_log</div><div class="line">    limit #&#123;page.startIndex&#125;, #&#123;page.pageSize&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line">  </div><div class="line">mapper</div><div class="line">public List<span class="tag">&lt;<span class="name">UserLog</span>&gt;</span> selectByPage(@Param("page") page)</div></pre></td></tr></table></figure>
+<p>dao</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> List&lt;UserLog&gt; <span class="title">selectByPage</span><span class="params">(Page page)</span> </span>&#123;</div><div class="line">   <span class="keyword">return</span> <span class="keyword">this</span>.userLogMapper.selectByPageSize(page);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>测试一下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    ApplicationContext context = <span class="keyword">new</span></div><div class="line">                ClassPathXmlApplicationContext(<span class="string">"spring/applicationContext.xml"</span>);</div><div class="line"></div><div class="line">    UserLogService service = (UserLogService) context.getBean(<span class="string">"userLogService"</span>);</div><div class="line"></div><div class="line">    Page page = <span class="keyword">new</span> Page();</div><div class="line">    page.setPageSize(<span class="number">10</span>);</div><div class="line">    page.setPageNum(<span class="number">1</span>);</div><div class="line"></div><div class="line">    List&lt;UserLog&gt; logs = service.selectByPage(page);</div><div class="line">    <span class="keyword">for</span> (UserLog log: logs) &#123;</div><div class="line">        System.out.println(<span class="string">"功能: "</span> +log.getFunction() + <span class="string">" id: "</span> + log.getId());</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/mybatisPage.png" alt="结果"></p>
+<h2 id="带条件查询"><a href="#带条件查询" class="headerlink" title="带条件查询"></a><li>带条件查询</li></h2><p>也可以在语句中插入条件然后进行分页查询.<br>例如: 查询id&gt;100的数据.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectByPage"</span> <span class="attr">parameterType</span>=<span class="string">"com.ysq.util.Page"</span></span></div><div class="line"><span class="tag">          <span class="attr">resultMap</span>=<span class="string">"BaseResultMap"</span>&gt;</span></div><div class="line">    select * from user_log where id &gt; 100</div><div class="line">    limit #&#123;page.startIndex&#125;, #&#123;page.pageSize&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><li>总结</li></h2><p>从上面看来,通过mybatis实现分页查询还是较为简单的,希望这篇文章对大家有所帮助!谢谢.</p>
 
       
     </div>
@@ -485,8 +502,8 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
-               alt="尹思迁" />
-          <p class="site-author-name" itemprop="name">尹思迁</p>
+               alt="yinsiqian" />
+          <p class="site-author-name" itemprop="name">yinsiqian</p>
            
               <p class="site-description motion-element" itemprop="description">日常的点滴记录</p>
           
@@ -557,7 +574,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-PageHelper的使用"><span class="nav-number">1.</span> <span class="nav-text">Java PageHelper的使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分页的分类"><span class="nav-number">1.</span> <span class="nav-text">分页的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询语句"><span class="nav-number">2.</span> <span class="nav-text">查询语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带条件查询"><span class="nav-number">4.</span> <span class="nav-text">带条件查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -584,7 +601,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">尹思迁</span>
+  <span class="author" itemprop="copyrightHolder">yinsiqian</span>
 </div>
 
 
